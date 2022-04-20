@@ -1,8 +1,8 @@
+import { Home } from "./pages/Home";
+
 function App() {
   return (
-    <div className="App">
-      <h1>OnQuestions</h1>
-    </div>
+    <Home />
   );
 }
 
