@@ -49,7 +49,7 @@ export function Room() {
     const roomRef = database.ref(`rooms/${roomId}`);
 
     roomRef.on('value', (room) => {
-      const databaseRoom = room.val();
+      const databaseRoom = room.val(); 
       const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
 
       const parsedQuestions = Object.entries(firebaseQuestions).map(
@@ -130,6 +130,8 @@ export function Room() {
             <Button type="submit">Submit question</Button>
           </div>
         </form>
+
+        {JSON.stringify(questions)}
       </main>
     </div>
   );
