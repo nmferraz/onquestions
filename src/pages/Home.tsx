@@ -35,6 +35,11 @@ export function Home() {
       return;
     }
 
+    if (roomRef.val().endedAt) {
+      alert('Room has been shut down.');
+      return;
+    }
+
     history.push(`/rooms/${roomCode}`);
   }
 
