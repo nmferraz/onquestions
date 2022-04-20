@@ -105,7 +105,7 @@ export function Room() {
       </header>
       <main>
         <div className="room-title">
-          <h1>Room {title}</h1>
+          <h1>{title} Room</h1>
           {questions.length > 0 && <span>{questions.length} question(s)</span>}
         </div>
 
