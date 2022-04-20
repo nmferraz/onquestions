@@ -22,7 +22,7 @@ export function NewRoom() {
           </form>
           <p>
             Do you want to enter an existing room?{' '}
-            <a href="/">Click here</a>
+            <Link to="/">Click here</Link>
           </p>
         </div>
       </main>
