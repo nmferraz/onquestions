@@ -51,7 +51,10 @@ export function AdminRoom() {
       <header>
         <div className="content">
           <img src={logoImg} alt="OnQuestions Logo" />
-          <RoomCode code={roomId} />
+          <div>
+            <RoomCode code={roomId} />
+            <Button isOutlined>Encerrar sala</Button>
+          </div>
         </div>
       </header>
       <main>
@@ -59,28 +62,6 @@ export function AdminRoom() {
           <h1>{title} Room</h1>
           {questions.length > 0 && <span>{questions.length} question(s)</span>}
         </div>
-
-        <form onSubmit={handleSendQuestion}>
-          <textarea
-            placeholder="What do you want to ask?"
-            onChange={(event) => setNewQuestion(event.target.value)}
-            value={newQuestion}
-          />
-          <div className="form-footer">
-            {user ? (
-              <div className="user-info">
-                <img src={user.avatar} alt={user.name} />
-                <span>{user.name}</span>
-              </div>
-            ) : (
-              <span>
-                If you want to ask something, please{' '}
-                <button>make your login</button>.
-              </span>
-            )}
-            <Button type="submit">Submit question</Button>
-          </div>
-        </form>
 
         <div className="question-list">
           {questions.map((question) => {
