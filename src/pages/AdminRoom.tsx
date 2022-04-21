@@ -8,6 +8,8 @@ import { RoomCode } from '../components/RoomCode';
 import { useRoom } from '../hooks/useRoom';
 import '../styles/room.scss';
 import { database } from '../services/firebase';
+import checkImg from '../assets/images/check.svg';
+import answerImg from '../assets/images/answer.svg';
 
 type RoomParams = {
   id: string;
@@ -61,6 +63,25 @@ export function AdminRoom() {
                 content={question.content}
                 author={question.author}
               >
+                {!question.isAnswered && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                    >
+                      <img
+                        src={checkImg}
+                        alt="Check question as answered"
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleHighlightQuestion(question.id)}
+                    >
+                      <img src={answerImg} alt="Give spotlight to this question" />
+                    </button>
+                  </>
+                )}
                 <button
                   type="button"
                   onClick={() => handleDeleteQuestion(question.id)}
