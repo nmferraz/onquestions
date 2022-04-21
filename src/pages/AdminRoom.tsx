@@ -36,6 +36,12 @@ export function AdminRoom() {
     }
   }
 
+  async function handleCheckQuestionAsAnswered(questionId: string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isAnswered: true,
+    });
+  }
+
   return (
     <div id="page-room">
       <header>
@@ -69,16 +75,16 @@ export function AdminRoom() {
                       type="button"
                       onClick={() => handleCheckQuestionAsAnswered(question.id)}
                     >
-                      <img
-                        src={checkImg}
-                        alt="Check question as answered"
-                      />
+                      <img src={checkImg} alt="Check question as answered" />
                     </button>
                     <button
                       type="button"
                       onClick={() => handleHighlightQuestion(question.id)}
                     >
-                      <img src={answerImg} alt="Give spotlight to this question" />
+                      <img
+                        src={answerImg}
+                        alt="Give spotlight to this question"
+                      />
                     </button>
                   </>
                 )}
